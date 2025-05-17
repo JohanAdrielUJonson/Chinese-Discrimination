@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discrimation on Chinese People</title>
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>User Profile</h1>
+    </header>
+    <div class="info"><span class="label">First Name:</span><span class="value" id="firstName"></span></div>
+    <div class="info"><span class="label">Last Name:</span><span class="value" id="lastName"></span></div>
+    <div class="info"><span class="label">Email:</span><span class="value" id="email"></span></div>
+    <div class="info"><span class="label">Sex:</span><span class="value" id="sex"></span></div>
+    <div class="info"><span class="label">Why I support this campaign:</span><br><span class="value" id="reason"></span></div><br>
+    <p id="back"><a href="../html/homepage.html" style="color: black">Back to Homepage</a></p>
+  </div>
+  <script>
+    document.getElementById('firstName').textContent = localStorage.getItem('firstName') || '-';
+    document.getElementById('lastName').textContent = localStorage.getItem('lastName') || '-';
+    document.getElementById('email').textContent = localStorage.getItem('email') || '-';
+    document.getElementById('sex').textContent = localStorage.getItem('sex') || '-';
+    document.getElementById('reason').textContent = localStorage.getItem('reason') || '-';
+  </script>
+</body>
+</html>

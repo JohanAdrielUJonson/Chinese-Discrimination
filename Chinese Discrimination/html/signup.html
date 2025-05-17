@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discrimation on Chinese People</title>
+  <link rel="stylesheet" href="../css/signup.css" />
+</head>
+<body>
+  <div class="container">
+  <header>
+    <h1>Sign Up</h1>
+  </header>
+    <div class="form-group">
+      <label class="required-label">First Name</label>
+      <input type="text" id="firstName">
+      <div class="error" id="errorFirstName"></div>
+    </div>
+    <div class="form-group">
+      <label class="required-label">Last Name</label>
+      <input type="text" id="lastName">
+      <div class="error" id="errorLastName"></div>
+    </div>
+    <div class="form-group">
+      <label class="required-label">Sex</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sex" value="Male"> Male</label>
+        <label><input type="radio" name="sex" value="Female"> Female</label>
+        <label><input type="radio" name="sex" value="Prefer not to say"> Prefer not to say</label>
+      </div>
+      <div class="error" id="errorSex"></div>
+    </div>
+    <div class="form-group">
+      <label class="required-label">Email</label>
+      <input type="email" id="email">
+      <div class="error" id="errorEmail"></div>
+    </div>
+    <div class="form-group">
+      <label class="required-label">Password</label>
+      <input type="password" id="password">
+      <div class="error" id="errorPassword"></div>
+    </div>
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="text" id="contact">
+    </div>
+    <div class="form-group">
+      <label class="required-label">Why you're supporting this website</label>
+      <textarea id="reason" rows="4"></textarea>
+      <div class="error" id="errorReason"></div>
+    </div>
+    <button onclick="submitForm()">Submit</button>
+  </div>
+  <script>
+    function submitForm() {
+      let valid = true;
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const sex = document.querySelector('input[name="sex"]:checked');
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const reason = document.getElementById('reason').value.trim()
+      if (firstName == "") {
+        document.getElementById('errorFirstName').textContent = 'Required';
+        valid = false;
+      }
+      if (lastName == "") {
+        document.getElementById('errorLastName').textContent = 'Required';
+        valid = false;
+      }
+      if (!sex) {
+        document.getElementById('errorSex').textContent = 'Required';
+        valid = false;
+      }
+      if (email == "") {
+        document.getElementById('errorEmail').textContent = 'Required';
+        valid = false;
+      }
+      if (password == "") {
+        document.getElementById('errorPassword').textContent = 'Required';
+        valid = false;
+      }
+      if (reason == "") {
+        document.getElementById('errorReason').textContent = 'Required';
+        valid = false;
+      }
+      if (valid != false) {
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastName', lastName);
+        localStorage.setItem('sex', sex.value);
+        localStorage.setItem('email', email);
+        localStorage.setItem('reason', reason);
+
+        window.location.href = '../html/profile.html';
+      }
+    }
+  </script>
+</body>
+</html>
